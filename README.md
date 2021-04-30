@@ -5,6 +5,8 @@ Download the latest release *here*. Extract the zip file that was downloaded and
 ## The Main GUI
 When you first run Speedrun Companion, you will be asked if you have read through this document, and then the main GUI will be displayed. A description of each button is provided below. Whenever you press a button, please do not use the mouse or keyboard until it has finished its actions.
 
+![image](https://user-images.githubusercontent.com/50433837/116632587-241da380-a91d-11eb-9490-133273ac4722.png)
+
 ### Start FSG/RSG Practice 
 Hitting this button will make sure all required applications are open (Minecraft and LiveSplit) and enable practice hotkeys. This button will be grayed out if no practice map is provided in Practice Settings. See Practice Settings for more information.
 
@@ -41,7 +43,7 @@ Hitting this button will open this ReadMe file on Github in your browser.
 ## The Settings Window
 
 ### General Settings
-
+![image](https://user-images.githubusercontent.com/50433837/116632675-5b8c5000-a91d-11eb-9e39-9838eb33b5bd.png)
 #### Gamemode Switcher Hotkeys
 Checking this option will enable custom hotkeys to change your gamemode. Assign the hotkeys below.
 
@@ -67,7 +69,6 @@ In the *Recording Software Path* field please put the full file path to your rec
 
 In the *OBS Studio Toggle Record* field, please put the hotkey that you use to toggle recording in OBS Studio. You have to set this up in OBS´s settings. This allows Speedrun Companion to start/stop recording when it opens/closes OBS. Unfortunately, at the moment this is only applicable for OBS studio and if you use Streamlabs OBS you will have to manually start/stop recording.
 
-
 #### LiveSplit
 In the *LiveSplit Path* field, please put the full file path to LiveSplit (ex. *D:\Saved Games\LiveSplit\LiveSplit.exe*). This allows Speedrun Companion to open LiveSplit with no splits open when you press *Start RSG Practice* or *Start SSG Practice*.
 
@@ -78,6 +79,7 @@ In the *LiveSplit Reset* field, please put the hotkey that you use to reset Live
 In the *LiveSplit Text Color* field, please put the hexadecimal value of the color of your timer. This allows Speedrun Companion to know when LiveSplit appears on your screen, as often when you first start LiveSplit it can take up to 30 seconds to appear.
 
 ### Speedrun Settings
+![image](https://user-images.githubusercontent.com/50433837/116632690-63e48b00-a91d-11eb-8976-2bd24e110e64.png)
 
 #### General Speedrun Settings
 In the *Reset Hotkey* field, please put the key would like to use to auto reset. This is your reset hotkey for RSG, SSG, and FSG. This hotkey will exit the world (if you are in one), wait for the title screen to appear, and then create a new world, either RSG, SSG, or FSG, depending on which mode you are in. There is a delay so that world creation is visible for verifiers.
@@ -104,6 +106,7 @@ If you selected Auto Local:
 * Please provide the path to your ubuntu installation (ex, *C:\Program Files\WindowsApps\CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2021.222.0_x64__79rhkp1fndgsc\ubuntu2004.exe*).
 
 ### Practice Settings
+![image](https://user-images.githubusercontent.com/50433837/116632703-69da6c00-a91d-11eb-8df4-53a38f08e2d3.png)
 
 #### General Practice Settings
 In the *Cycle Practice Map* field, please provide a hotkey to use for cycling between practice worlds in RSG/FSG Practice Mode or SSG Practice Mode. Pressing this hotkey during a practice mode will exit the world (if you are in one), and then load up the practice map you specify below. It will open practice map 1 the first time it is pressed, and if practice map 2 is provided, it will open that map the next time this hotkey is pressed, and so on until it circles back around to practice map 1.
@@ -111,13 +114,22 @@ In the *Cycle Practice Map* field, please provide a hotkey to use for cycling be
 #### FSG/RSG Practice Settings
 If you want to used FSG/RSG Practice Mode, you must at least fill in *FSG/RSG Practice Map 1* with the name of the practice world. To avoid issues, make sure that the world file folder name is identical to the display name of the world within Minecraft. If you would like to use additional practice maps, check the checkbox above them and provide a world name.
 
-As a complement to Speedrun Companion, I have created a modified version of [Sethbling´s Speedrun Practice Datapack](https://www.youtube.com/watch?v=UihtGJhK_-w) which you can find *here*. This modified version is based off of modifications made by Secondairy#1782. This modified version is designed to be used exclusively for with Speedrun Companion for bastion practice, so the chat interface has been completely removed and I have added the ability to create custom loadouts. Check *I Use the Speedrun Companion Bastion Practice Datapack* if you have installed it.
+As a complement to Speedrun Companion, I have created a modified version of [Sethbling´s Speedrun Practice Datapack](https://www.youtube.com/watch?v=UihtGJhK_-w) which you can find *here*. This modified version is based off of modifications made by Secondairy#1782. This modified version is designed to be used exclusively for with Speedrun Companion for bastion practice, so the chat interface has been completely removed and I have added the ability to create custom loadouts. Check *I Use the Speedrun Companion Bastion Practice Datapack* if you have installed it, and make sure that the name of the world you put it into is named "Bastion Practice".
 
 If you use the Speedrun Companion Bastion Practice Datapack, in the *Start Bastion Hotkey* field, choose a hotkey that will start your timer and put you into survival mode. Likewise, the *Reset Bastion Hotkey* field is a hotkey that will reset your loadout and timer and send you to a new bastion during RSG/FSG Practice Mode.
 
-As a complement to Speedrun Companion, I have also created a modified version of [Jojo's Perch Practice Map](https://github.com/jojoe77777/PerchPractice/releases/tag/1.2) which you can find *here*. These are just some quality of life improvements including instantly resetting after the dragon dies and easily customizable loadouts. Jojo's map does have custom loadouts, however you cannot choose what items go to what slots, but with this version you can choose which items go to which slots. Check *I Use the Speedrun Companion Perch Practice Map* if you have installed it.
+As a complement to Speedrun Companion, I have also created a modified version of [Jojo's Perch Practice Map](https://github.com/jojoe77777/PerchPractice/releases/tag/1.2) which you can find *here*. These are just some quality of life improvements including instantly resetting after the dragon dies and easily customizable loadouts. Jojo's map does have custom loadouts, however you cannot choose what items go to what slots, but with this version you can choose which items go to which slots. Check *I Use the Speedrun Companion Perch Practice Map* if you have installed it. Do not change the name from "Perch Practice".
 
 If you have installed either of those things, the *Edit Bastion Practice Loadouts* and *Edit Perch Practice Loadouts* buttons will open a text file where you can customize your loadouts. I have faith that based on the default loadouts you are smart enough to figure out how to customize it.
 
 #### SSG Practice Settings
 If you want to used SSG Practice Mode, you must at least fill in *SSG Practice Map 1* with the name of the practice world. To avoid issues, make sure that the world file folder name is identical to the display name of the world within Minecraft. If you would like to use additional practice maps, check the checkbox above them and provide a world name.
+
+## Other Information
+When assigning hotkeys the following modifiers may be added (without quotes)
+"#" = Windows Key
+"+" = Shift
+"^" = Control
+"!" = Alt
+
+When providing a path to an application, please include the entire path from the drive letter all the way to the .exe
