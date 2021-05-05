@@ -1,4 +1,4 @@
-﻿; Minecraft Speedrun Companion
+; Minecraft Speedrun Companion
 ; Author:   ryguy2k4
 
 ;================================================================================================================================================
@@ -7,13 +7,53 @@
 #NoEnv
 #SingleInstance force
 SetWorkingDir %A_ScriptDir%
-;@Ahk2Exe-SetMainIcon A:\Minecraft Directory\External Programs\AutoHotKey\icon.ico
 SetKeyDelay, 0
 Mode = 0
 pMode = 0
 lsClosed = 0
 n = 0
 updateVariables()
+Hotkey, %setSurvival%, setSurvival
+Hotkey, %setCreative%, setCreative
+Hotkey, %setSpectator%, setSpectator
+Hotkey, %Borderless%, windowedBorderless
+Hotkey, %Reset%, autoResetRSG
+Hotkey, %resetBasPractice%, resetBasPractice
+Hotkey, %startBasPractice%, startBasPractice
+updateHotkeys()
+
+;================================================================================================================================================
+;First Time Set Up
+;================================================================================================================================================
+;if (FileExist(options.ini) = "") {
+	;FileAppend,, options.ini
+	;IniWrite, 1, options.ini, Options, readMe
+	;IniWrite, 0, options.ini, Options, gmHotkeys
+	;IniWrite, 0, options.ini, Options, abusePlanar
+	;IniWrite, 0, options.ini, Options, autoPause
+	;IniWrite, 1, options.ini, Options, Launcher
+	;IniWrite, 1, options.ini, Options, windowMode
+	;IniWrite, 1, options.ini, Options, obsSoftware
+	;IniWrite, 2, options.ini, Options, FSGGen
+	;IniWrite, 0, options.ini, Options, posX
+	;IniWrite, 0, options.ini, Options, posY
+	;IniWrite, 2483313382402348964, options.ini, Options, Seed
+	;IniWrite, AAAAAA, options.ini, Options, lsColor
+	;IniWrite, Del, options.ini, Hotkeys, Borderless
+	;IniWrite, PgUp, options.ini, Hotkeys, cyclePractice
+	;IniWrite, !m, options.ini, Hotkeys, setSurvival
+	;IniWrite, !n, options.ini, Hotkeys, setCreative
+	;IniWrite, !b, options.ini, Hotkeys, setSpectator
+	;IniWrite, -, options.ini, Hotkeys, resetBasPractice
+	;IniWrite, =, options.ini, Hotkeys, startBasPractice
+	;IniWrite, \, options.ini, Hotkeys, Reset
+	;IniWrite, 0, options.ini, PracticeMaps, practiceRSG2
+	;IniWrite, 0, options.ini, PracticeMaps, practiceRSG3
+	;IniWrite, 0, options.ini, PracticeMaps, practiceRSG4
+	;IniWrite, 0, options.ini, PracticeMaps, practiceSSG2
+	;IniWrite, 0, options.ini, PracticeMaps, perchPractice
+	;IniWrite, 0, options.ini, PracticeMaps, bastionPractice
+;}
 if (!readMe) {
 	MsgBox, 4,, Have you read through the entirety of the ReadMe.md file on Github?
 	IfMsgBox No
@@ -28,15 +68,6 @@ if (!readMe) {
 		Reload
 	}
 }
-Hotkey, %setSurvival%, setSurvival
-Hotkey, %setCreative%, setCreative
-Hotkey, %setSpectator%, setSpectator
-Hotkey, %Borderless%, windowedBorderless
-Hotkey, %Reset%, autoResetRSG
-Hotkey, %resetBasPractice%, resetBasPractice
-Hotkey, %startBasPractice%, startBasPractice
-updateHotkeys()
-
 ;================================================================================================================================================
 ;Main GUI
 ;================================================================================================================================================
@@ -48,11 +79,12 @@ gui, add, button, x+10 h30 w120 gstartSSGPractice vcontrolSSGP, Start SSG Practi
 gui, add, button, x31 y+20 h30 w120 gstartRSG, Start RSG
 gui, add, button, x+10 h30 w120 gstartSSG vcontrolSSG, Start SSG
 gui, add, button, x+10 h30 w120 gstartFSG vcontrolFSG, Start FSG
-gui, add, progress, x91 y+40 h10 w250 vsavesProgress cgreen
+gui, add, progress, x91 y+20 h10 w250 vsavesProgress cgreen
 gui, add, button, x91 y+10 h30 w120 gcloseAll, Close All Applications
 gui, add, button, x+10 h30 w120 gclearSaves vcontrolClearSaves, Clear Saves Folder
 gui, add, button, x156 y+10 h30 w120 geditSettings, Change Settings
 gui, add, button, x5 y220 h20 w80 gReference, Reference
+gui, add, text, x150 y225, Check for updates often!
 gui, add, button, x340 y220 h20 w45 greloadApp, Reload
 gui, add, button, x390 y220 h20 w40 ghelp, Help
 controlGUIMain(PracticeRSG1World, "controlRSGP")
@@ -76,7 +108,7 @@ mainguiClose:
 editSettings:
 	gui, Settings:new
 	gui, margin, 0, 0
-	gui, add, tab3, w432 h620, General Settings|Speedrun Settings|Practice Settings
+	gui, add, tab3, w432 h650, General Settings|Speedrun Settings|Practice Settings
 	gui, tab, 1
 	gui, add, checkbox, x10 y25 gcontrolGSH vgmHotkeys Checked%gmHotkeys%, Gamemode Switcher Hotkeys
 	gui, add, text, x10 y+5 w100 vsetSurvivalText, Set Survival
@@ -94,7 +126,7 @@ editSettings:
 	gui, add, edit, x10 y+2 w412 vsavesPath, %savesPath%
 	gui, add, text, x10 y+0, ---------------------------------------------------------------------------------------------------------------------																	
 	gui, add, text, x10 y+2, Choose Window Mode
-	gui, add, dropdownlist, x10 y+2 w201 gcontrolBorderless vwindowMode choose%windowMode% altsubmit, Windowed Borderless|Fullscreen|Windowed
+	gui, add, dropdownlist, x10 y+2 w201 gcontrolBorderless vwindowMode choose%windowMode% altsubmit, Windowed|Fullscreen
 	gui, add, text, x10 y+5 vborderlessText, Toggle Windowed Borderless
 	gui, add, edit, x10 y+2 w100 vBorderless, %Borderless%
 	gui, add, checkbox, x10 y+5 vabusePlanar Checked%abusePlanar%, Abuse Planar in RSG
@@ -207,7 +239,7 @@ editSettings:
 	controlGUI(FSGGen, "FSGPathText")
 	controlGUI(FSGGen, "ubuntuPath")
 	controlGUI(FSGGen, "ubuntuPathText")
-	gui, show, w432 h620, Settings
+	gui, show, w432 h650, Settings
 	return
 ;================================================================================================================================================
 ; Settings GUI Control Labels
@@ -283,8 +315,7 @@ controlFSGGen:
 ;================================================================================================================================================
 closeAll:
 	openMC(0)
-	saveLS()
-	Process, Close, LiveSplit.exe
+	openLS(0)
 	openTR(0)
 	openOBS(0)
 	openUbuntu(0)
@@ -301,79 +332,21 @@ clearSaves:
 	}
 	Sleep, 100
 	GuiControl,, savesProgress, 0
-	FSGFiles = 0
-	Loop, Files, %savesPath%\FSG*.txt
-		FSGFiles++
-	GuiControl, +Range0-%FSGFiles%, savesProgress
-	Loop, Files, %savesPath%\FSG*.txt
-	{
-		FileDelete, %A_LoopFilePath%
-		GuiControl,, savesProgress, +1
-	}
-	Sleep, 100
-	GuiControl,, savesProgress, 0
 	return
 startRSGPractice:
-	Mode = -1
-	updateHotkeys()
-	pMode = 0
-	updatePMode()
+	openAll(-1, -1, 1, -1, -1, 1)
 	return
 startSSGPractice:
-	Mode = -2
-	updateHotkeys()
-	pMode = 0
-	updatePMode()
+	openAll(-2, -1, 1, -1, -1, 1)
 	return
 startRSG:
-	openMC(1)
-	Sleep, 500
-	WinActivate, Minecraft
-	Sleep, 500
-	IfInString Title, player 
-	{
-		Send, {Escape}
-		exitWorld()
-		waitMenuScreen()
-	}
-	openLS(lsRSGPath)
-	openTR(1)
-	openOBS(1)
-	Mode = 1
-	updateHotkeys()
+	openAll(1, 1, lsRSGPath, 1, 0, 1)
 	return
 startSSG:
-	openMC(1)
-	WinActivate, Minecraft
-	Sleep, 500
-	IfInString Title, player 
-	{
-		Send, {Escape}
-		exitWorld()
-		waitMenuScreen()
-	}
-	openLS(lsSSGPath)
-	openTR(0)
-	openOBS(1)
-	Mode = 2
-	updateHotkeys()
+	openAll(2, 1, lsSSGPath, 0, 0, 1)
 	return
 startFSG:
-	openMC(1)
-	WinActivate, Minecraft
-	Sleep, 500
-	IfInString Title, player 
-	{
-		Send, {Escape}
-		exitWorld()
-		waitMenuScreen()
-	}
-	openLS(lsFSGPath)
-	openTR(0)
-	openUbuntu(1)
-	openOBS(1)
-	Mode = 3
-	updateHotkeys()
+	openAll(3, 1, lsFSGPath, 0, 1, 1)
 	return
 editPerchLoadouts:
 	Run, Explorer %savesPath%\Perch Practice\datapacks\speedrunner-addons\data\hc\functions\bed_loadout.mcfunction
@@ -559,6 +532,27 @@ updateVariables() {
 	IniRead, bastionPractice, options.ini, PracticeMaps, bastionPractice
 	FSGPathUnix := Format("{:L}", SubStr(FSGPath, 1, 1)) . SubStr(StrReplace(StrReplace(FSGPath, ":", ""), "\", "/"), 2)
 }
+openAll(M, OBS, LS, TR, U, MC) {
+	global Mode
+	Mode = %M%
+	if (M < 0) {
+		pMode = 1
+	}
+	updateHotkeys()
+	openOBS(OBS)
+	openUbuntu(U)
+	openTR(TR)
+	openMC(MC)
+	WinGetTitle, Title, Minecraft
+	if (InStr(Title, "player") != 0) {
+		WinActivate, Minecraft
+		Send, {Escape}
+		exitWorld()
+		Sleep, 500
+	}
+	openLS(LS)
+	WinActivate, Minecraft
+}
 openLS(path) {
 	global lsClosed
 	global lsPath
@@ -606,7 +600,6 @@ openLS(path) {
 	}
 }
 saveLS() {
-	waitLiveSplit()
 	WinActivate, LiveSplit
 	Send, %lsReset%
 	MouseMove, 10, 10
@@ -626,6 +619,7 @@ closeLS() {
 openOBS(x) {
 	global obsPath
 	global obsSoftware
+	global obsRecord
 	if (x = 1) {
 		if (obsSoftware = 2) {
 			if (WinExist("Streamlabs OBS") = 0) {
@@ -638,14 +632,17 @@ openOBS(x) {
 				; if OBS needs to be started and is currently closed
 				Run, %obsPath%
 				waitOBS()
+				WinActivate, OBS
+				Sleep, 500
 				Send, %obsRecord%
 			}
 		}
-		Sleep, 100
 	}
-	else {
+	else if (x = 0) {
 		if (obsSoftware = 1 && WinExist("OBS") != 0) {
 			; if OBS needs to be closed and is currently open
+			WinActivate, OBS
+			Sleep, 500
 			Send, %obsRecord%
 			Sleep, 3000
 			Process, Close, obs64.exe
@@ -654,12 +651,10 @@ openOBS(x) {
 }
 openTR(x) {
 	global trPath
-	if (x = 1) {
-		if (WinExist("resetTracker") = 0) {
-			Run, %trPath%
-		}
+	if (x = 1 && WinExist("resetTracker") = 0) {
+		Run, %trPath%
 	}
-	else if (WinExist("resetTracker") != 0 && x = 0) {
+	else if (x = 0 && WinExist("resetTracker") != 0) {
 		WinActivate, resetTracker
 		Send, quit{Enter}
 	}
@@ -684,7 +679,7 @@ openMC(w) {
 }
 openUbuntu(x) {
 	global ubuntuPath
-	global ubuntuPathUnix
+	global FSGPathUnix
 	if (x = 1) {
 		Run, %ubuntuPath%
 		Sleep, 1000
@@ -692,7 +687,7 @@ openUbuntu(x) {
 		Sleep, 3000
 		Send, cd "/mnt/%FSGPathUnix%" {Enter}
 	}
-	else {
+	else if (x = 0) {
 		WinActivate, ahk_exe ubuntu2004.exe
 		Sleep, 1000
 		Send, exit{Enter}
@@ -714,7 +709,7 @@ sendCommand(x) {
 waitMenuScreen() {
 	start := A_TickCount
 	Loop {
-		WinGetPos, X, Y, W, H, Minecraft
+		WinGetPos, X, Y, W, H, Minecraft	
 		PixelSearch,,, 0, 0, W, H, 0x00FCFC, 1, Fast
 		if (!ErrorLevel) {
 			Sleep, 300
@@ -723,7 +718,6 @@ waitMenuScreen() {
 		now := A_TickCount-start
 		if (now > 15000) {
 			Reload
-			Sleep 1000
 		}
 	}
 }
@@ -756,7 +750,7 @@ waitOBS() {
 			PixelSearch,,, X, Y, W, H, 0x7f2626, 1, Fast RGB ; look for red microphone bar
 		}
 		if (!ErrorLevel) {
-			Sleep, 100
+			Sleep, 500
 			return
 		}
 		now := A_TickCount-start
@@ -773,15 +767,15 @@ waitMC() {
 		if (Launcher = 2) {
 			WinActivate, MultiMC
 			WinGetPos, X, Y, W, H, MultiMC
-			PixelSearch,,, X, Y, W, H, 0x2884D9, 6, Fast RGB ; look for blue highlight on instance
+			PixelSearch,,, X, Y, W, H, 0xFFFFFF, 6, Fast RGB ; look for blue highlight on instance
 		}
 		else {
 			WinActivate, Minecraft Launcher
 			WinGetPos, X, Y, W, H, Minecraft Launcher
-			PixelSearch,,, X, Y, W, H, 0x008B45, 4, Fast RGB ; look for green play button
+			PixelSearch,,, X, Y, W, H, 0xFFFFFF, 4, Fast RGB ; look for green play button
 		}
 		if (!ErrorLevel) {
-			Sleep, 100
+			Sleep, 1000
 			return
 		}
 		now := A_TickCount-start
@@ -793,16 +787,14 @@ waitMC() {
 }
 updatePMode() {
 	global
-	if (Mode < 0 && pMode = 0) {
-		openMC(1)
-		openLS(1)
-		return
-	}
-	WinGetActiveTitle, Title
-	IfInString Title, player 
-	{
+	WinGetTitle, Title, Minecraft
+	if (InStr(Title, "player") != 0 && windowMode != 2) {
 		exitWorld()
 		waitMenuScreen()
+	}
+	else if (InStr(Title, "player") != 0 && windowMode = 2) {
+		exitWorld()
+		return
 	}
 	if (Mode = -1) {
 		if (pMode = 1) {
@@ -840,6 +832,7 @@ createWorld(x) {
 	global Seed
 	global autoPause
 	global FSGSeed
+	global windowMode
 	SetKeyDelay, 50
 	WinActivate, Minecraft
 	send {Tab}{Enter}{Tab}{Tab}{Tab}{Enter}{Tab}{Tab}{Enter}{Enter}{Enter}{Tab}{Tab}{Tab}{Tab}
@@ -851,10 +844,11 @@ createWorld(x) {
 		send {Enter}{Tab}{Tab}{Tab}%Seed%+{Tab}+{Tab}
 	}
 	else if (x=2) {
+		SetKeyDelay, 10
 		send {Enter}{Tab}{Tab}{Tab}%FSGSeed%{Tab}+{Tab}
 	}
 	send, {Enter}
-	if (autoPause) {
+	if (autoPause && windowMode = 1) {
 		WinActivate, LiveSplit
 	}
 }
@@ -862,9 +856,9 @@ exitWorld() {
 	send {Esc}+{Tab}{Enter} 
 }
 autoReset(z) {
+global windowMode
 	WinGetActiveTitle, Title
-	IfNotInString Title, player
-	{
+	if (InStr(Title, "player") = 0) {
 		if (z = 2) {
 			getFSGSeed()
 		}
@@ -872,9 +866,8 @@ autoReset(z) {
 	}
 	else {
 		exitWorld()
-		waitMenuScreen()
-		IfWinActive, Minecraft 
-		{
+		if (windowMode = 1) {
+			waitMenuScreen()
 			if (z = 2) {
 				getFSGSeed()
 			}
