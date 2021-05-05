@@ -3,7 +3,7 @@ Thanks you for checking out Speedrun Companion! Currently it is in a kind of pub
 
 Before we go any further, this is designed for Windows and I have no plans of supporting any other OS. Also at the moment I have only made it for the 1.16.1 category but I hope to support all 3 main RSG categories eventually, and maybe even AA.
 
-Speedrun Companion is a lot more than your average reset macro. It is an over-the-top automation tool for your speedrunning sessions because I know you are very lazy and it is hard to push a lot of buttons :D. Speedrun Companion can open all apps relevant to your speedrunning session, close them when you are done, clear your saves folder, it has customizable practice routines, macros for RSG, SSG, FSG, and bastion practice. I am quite proud of the efficient FSG reset macro that uses the locally run FSG generator.To give you a better understanding of what this program is capale of, check out this demo video.
+Speedrun Companion is a lot more than your average reset macro. It is an over-the-top automation tool for your speedrunning sessions because I know you are very lazy and it is hard to push a lot of buttons :D. Speedrun Companion can open all apps relevant to your speedrunning session, close them when you are done, clear your saves folder, it has customizable practice routines, macros for RSG, SSG, FSG, and bastion practice. I am quite proud of the efficient FSG reset macro that uses the locally run FSG generator. To give you a better understanding of what this program is capable of, check out this [demo video](https://www.youtube.com/watch?v=f-1cHzKHYbA).
 
 If you have any questions, comments, or concerns, DM me at ryguy2k4#9371
 
@@ -66,14 +66,14 @@ In the *Minecraft Saves Path* field, please put the full file path to your Minec
 #### Window Mode
 Please select which window mode you use from this drop down menu. There are 3 options, windowed, windowed borderless, and fullscreen. This field allows Speedrun Companion to know what your Minecraft window looks like and whether or not to enable its built in windowed borderless functionality. There many different pros and cons between windowed borderless/windowed and fullscreen that are explained below.
 
-Windowed Borderless Pros (and things you miss out on with fullscreen:
+Windowed Borderless Pros (and things you miss out on with fullscreen):
 * You can provide a hotkey to toggle windowed borderless in the *Toggle Windowed Borderless* field
 * You can enable the option to abuse planar fog during RSG. This will stretch your Minecraft window in order to see more on the edges of your field of view
 * You can enable the option to auto pause upon reset. This will switch focus to another window after creating a world so that when you load in, the game will start paused.
 * You can tab out whenever
 * You can put your timer on top of the Minecraft window
 
-Fullscreen Pros (and things you miss out on with windowed borderless/windowed:
+Fullscreen Pros (and things you miss out on with windowed borderless/windowed):
 * Less input delay
 * A smoother, less laggy experience
 
@@ -89,6 +89,8 @@ In the *Recording Software Path* field please put the full file path to your rec
 In the *OBS Studio Toggle Record* field, please put the hotkey that you use to toggle recording in OBS Studio. You have to set this up in OBS´s settings. This allows Speedrun Companion to start/stop recording when it opens/closes OBS. Unfortunately, at the moment this is only applicable for OBS studio and if you use Streamlabs OBS you will have to manually start/stop recording.
 
 #### LiveSplit
+**Livesplit is a requierment** for this program to work, all the below fields must be filled in. (if you never plan to play ssg for example though you can leave it blank)
+
 In the *LiveSplit Path* field, please put the full file path to LiveSplit (ex. *D:\Saved Games\LiveSplit\LiveSplit.exe*). This allows Speedrun Companion to open LiveSplit with no splits open when you press *Start RSG Practice* or *Start SSG Practice*.
 
 In the *LiveSplit Start* field,  please put the hotkey that you use to start LiveSplit. This hotkey is something that should be setup within LiveSplit´s settings. This allows Speedrun Companion to start the timer during bastion practice.
@@ -134,7 +136,7 @@ In the *Cycle Practice Map* field, please provide a hotkey to use for cycling be
 #### FSG/RSG Practice Settings
 If you want to used FSG/RSG Practice Mode, you must at least fill in *FSG/RSG Practice Map 1* with the name of the practice world. To avoid issues, make sure that the world file folder name is identical to the display name of the world within Minecraft. If you would like to use additional practice maps, check the checkbox above them and provide a world name.
 
-As a complement to Speedrun Companion, I have created a modified version of [Sethbling´s Speedrun Practice Datapack](https://www.youtube.com/watch?v=UihtGJhK_-w) which is included in the folder when you download Speedrun Companion. This modified version is based off of modifications made by Secondairy#1782. This modified version is designed to be used exclusively for with Speedrun Companion for bastion practice, so the chat interface has been completely removed and I have added the ability to create custom loadouts. Check *I Use the Speedrun Companion Bastion Practice Datapack* if you have installed it, and make sure that the name of the world you put it into is named "Bastion Practice".
+As a complement to Speedrun Companion, I have created a modified version of [Sethbling´s Speedrun Practice Datapack](https://www.youtube.com/watch?v=UihtGJhK_-w) which is included in the folder when you download Speedrun Companion. This modified version is based off of modifications made by Secondairy#1782. This modified version is designed to be used exclusively with Speedrun Companion for bastion practice, so the chat interface has been completely removed and I have added the ability to create custom loadouts. Check *I Use the Speedrun Companion Bastion Practice Datapack* if you have installed it, and make sure that the name of the world you put it into is named "Bastion Practice".
 
 If you use the Speedrun Companion Bastion Practice Datapack, in the *Start Bastion Hotkey* field, choose a hotkey that will start your timer and put you into survival mode. Likewise, the *Reset Bastion Hotkey* field is a hotkey that will reset your loadout and timer and send you to a new bastion during RSG/FSG Practice Mode.
 
@@ -142,7 +144,7 @@ As a complement to Speedrun Companion, I have also created a modified version of
 
 If you have installed either of those modificatrions, the *Edit Bastion Practice Loadouts* and *Edit Perch Practice Loadouts* buttons will open a text file where you can customize your loadouts. I have faith that based on the default loadouts you are smart enough to figure out how to customize it.
 
-As a complement to Speedrun Companion, I have also created a modified version of [Emma's End Practice Map](https://sites.google.com/view/emma-practice-map/home) which is included in the folder when you download Speedrun Companion. They only modification I made was that is automatically resets when the dragon dies. It always annoyed me having to click the text in the chat or type /kill. This modification is purely in the datapack so you just have to swap out the original datapack with my modified one.
+As a complement to Speedrun Companion, I have also created a modified version of [Emma's End Practice Map](https://sites.google.com/view/emma-practice-map/home) which is included in the folder when you download Speedrun Companion. They only modification I made was that is automatically resets when the dragon dies. It always annoyed me having to click the text in the chat or type /kill. This modification is purely in the datapack so you just have to swap out the original datapack with my modified one. The name of the datapack is findseed.
 
 #### SSG Practice Settings
 If you want to used SSG Practice Mode, you must at least fill in *SSG Practice Map 1* with the name of the practice world. To avoid issues, make sure that the world file folder name is identical to the display name of the world within Minecraft. If you would like to use additional practice maps, check the checkbox above them and provide a world name.
