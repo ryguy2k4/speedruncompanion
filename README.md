@@ -130,7 +130,7 @@ If you selected Auto Local:
 * Please provide the path to your ubuntu installation (ex, *C:\Program Files\WindowsApps\CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2021.222.0_x64__79rhkp1fndgsc\ubuntu2004.exe*).
 
 ### Practice Settings
-![image](https://user-images.githubusercontent.com/50433837/116632703-69da6c00-a91d-11eb-8df4-53a38f08e2d3.png)
+![image](https://user-images.githubusercontent.com/50433837/117593004-4b842580-b100-11eb-8373-5cae8e409a40.png)
 
 #### General Practice Settings
 In the *Cycle Practice Map* field, please provide a hotkey to use for cycling between practice worlds in RSG/FSG Practice Mode or SSG Practice Mode. Pressing this hotkey during a practice mode will exit the world (if you are in one), and then load up the practice map you specify below. It will open practice map 1 the first time it is pressed, and if practice map 2 is provided, it will open that map the next time this hotkey is pressed, and so on until it circles back around to practice map 1.
