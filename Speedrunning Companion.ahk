@@ -25,35 +25,6 @@ updateHotkeys()
 ;================================================================================================================================================
 ;First Time Set Up
 ;================================================================================================================================================
-;if (FileExist(options.ini) = "") {
-	;FileAppend,, options.ini
-	;IniWrite, 1, options.ini, Options, readMe
-	;IniWrite, 0, options.ini, Options, gmHotkeys
-	;IniWrite, 0, options.ini, Options, abusePlanar
-	;IniWrite, 0, options.ini, Options, autoPause
-	;IniWrite, 1, options.ini, Options, Launcher
-	;IniWrite, 1, options.ini, Options, windowMode
-	;IniWrite, 1, options.ini, Options, obsSoftware
-	;IniWrite, 2, options.ini, Options, FSGGen
-	;IniWrite, 0, options.ini, Options, posX
-	;IniWrite, 0, options.ini, Options, posY
-	;IniWrite, 2483313382402348964, options.ini, Options, Seed
-	;IniWrite, AAAAAA, options.ini, Options, lsColor
-	;IniWrite, Del, options.ini, Hotkeys, Borderless
-	;IniWrite, PgUp, options.ini, Hotkeys, cyclePractice
-	;IniWrite, !m, options.ini, Hotkeys, setSurvival
-	;IniWrite, !n, options.ini, Hotkeys, setCreative
-	;IniWrite, !b, options.ini, Hotkeys, setSpectator
-	;IniWrite, -, options.ini, Hotkeys, resetBasPractice
-	;IniWrite, =, options.ini, Hotkeys, startBasPractice
-	;IniWrite, \, options.ini, Hotkeys, Reset
-	;IniWrite, 0, options.ini, PracticeMaps, practiceRSG2
-	;IniWrite, 0, options.ini, PracticeMaps, practiceRSG3
-	;IniWrite, 0, options.ini, PracticeMaps, practiceRSG4
-	;IniWrite, 0, options.ini, PracticeMaps, practiceSSG2
-	;IniWrite, 0, options.ini, PracticeMaps, perchPractice
-	;IniWrite, 0, options.ini, PracticeMaps, bastionPractice
-;}
 if (!readMe) {
 	MsgBox, 4,, Have you read through the entirety of the ReadMe.md file on Github?
 	IfMsgBox No
@@ -84,7 +55,7 @@ gui, add, button, x91 y+10 h30 w120 gcloseAll, Close All Applications
 gui, add, button, x+10 h30 w120 gclearSaves vcontrolClearSaves, Clear Saves Folder
 gui, add, button, x156 y+10 h30 w120 geditSettings, Change Settings
 gui, add, button, x5 y220 h20 w80 gReference, Reference
-gui, add, text, x150 y225, Check for updates often!
+;gui, add, text, x150 y225, Check for updates often!
 gui, add, button, x340 y220 h20 w45 greloadApp, Reload
 gui, add, button, x390 y220 h20 w40 ghelp, Help
 controlGUIMain(PracticeRSG1World, "controlRSGP")
@@ -203,9 +174,9 @@ editSettings:
 	gui, add, edit, x10 y+2 w110 vstartBasPractice, %startBasPractice%
 	gui, add, edit, x+10 w110 vresetBasPractice, %resetBasPractice%
 	gui, add, text, x10 y+0, ---------------------------------------------------------------------------------------------------------------------														
-	gui, add, checkbox, x10 y+5 gcontrolPPL vperchPractice checked%perchPractice%, I use the Speedrun Companion Perch Practice Map
-	gui, add, button, x10 y+10 h20 w201 geditPerchLoadouts vcontrolPPL, Edit Perch Practice Loadouts
-	gui, add, text, x10 y+0, ---------------------------------------------------------------------------------------------------------------------														
+	;gui, add, checkbox, x10 y+5 gcontrolPPL vperchPractice checked%perchPractice%, I use the Speedrun Companion Perch Practice Map
+	;gui, add, button, x10 y+10 h20 w201 geditPerchLoadouts vcontrolPPL, Edit Perch Practice Loadouts
+	;gui, add, text, x10 y+0, ---------------------------------------------------------------------------------------------------------------------														
 	gui, font, s10 bold
 	gui, add, text, x10 y+10, SSG Practice Settings
 	gui, font,
@@ -337,7 +308,7 @@ startRSGPractice:
 	openAll(-1, -1, 1, -1, -1, 1)
 	return
 startSSGPractice:
-	openAll(-2, -1, 1, -1, -1, 1)
+	openAll(-2, -1, 0, -1, -1, 1)
 	return
 startRSG:
 	openAll(1, 1, lsRSGPath, 1, 0, 1)
@@ -430,6 +401,7 @@ windowedBorderless:
 		}
 	}
 	WindowState:=!WindowState
+	WinActivate, Minecraft
 	return
 ;================================================================================================================================================
 ;Functions
@@ -606,6 +578,7 @@ saveLS() {
 	Click, Right
 	MouseMove, 60, 60
 	Click
+	Sleep, 500
 }
 closeLS() {
 	Sleep, 1000
@@ -644,7 +617,7 @@ openOBS(x) {
 			WinActivate, OBS
 			Sleep, 500
 			Send, %obsRecord%
-			Sleep, 3000
+			Sleep, 1500
 			Process, Close, obs64.exe
 		}
 	}
