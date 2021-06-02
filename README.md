@@ -54,7 +54,7 @@ Hitting this button will open this ReadMe file on Github in your browser.
 ## The Settings Window
 
 ### General Settings
-![image](https://user-images.githubusercontent.com/50433837/116632675-5b8c5000-a91d-11eb-9e39-9838eb33b5bd.png)
+![image](https://user-images.githubusercontent.com/50433837/120549839-b5b77f80-c3b9-11eb-8365-dee56092337c.png)
 #### Gamemode Switcher Hotkeys
 Checking this option will enable custom hotkeys to change your gamemode. Assign the hotkeys below.
 
@@ -65,12 +65,12 @@ In the *Minecraft Launcher Path* field, please put the full file path to your Mi
 
 In the *Minecraft Saves Path* field, please put the full file path to your Minecraft saves folder (ex. *A:\Minecraft Directory\MultiMC\instances\1.16.1\.minecraft\saves*). This allows Speedrun Companion to delete your worlds when you press the *Clear Saves* Folder button
 
-#### Window Mode
-Please select which window mode you use from this drop down menu. There are 3 options, windowed, windowed borderless, and fullscreen. This field allows Speedrun Companion to know what your Minecraft window looks like and whether or not to enable its built in windowed borderless functionality. There many different pros and cons between windowed borderless/windowed and fullscreen that are explained below.
+#### Window Mode Settings
+In the Speedrun Settings tab you can select a window mode for each mode, RSG, SSG, and FSG. There are 2 options, windowed and fullscreen. This field allows Speedrun Companion to know what your Minecraft window looks like and whether or not to enable its built in windowed borderless functionality. There many different pros and cons between windowed borderless/windowed and fullscreen that are explained below.
 
 Windowed Borderless Pros (and things you miss out on with fullscreen):
 * You can provide a hotkey to toggle windowed borderless in the *Toggle Windowed Borderless* field
-* You can enable the option to abuse planar fog during RSG. This will stretch your Minecraft window in order to see more on the edges of your field of view
+* You can enable the option to abuse planar fog during RSG/FSG. This will stretch your Minecraft window in order to see more on the edges of your field of view
 * You can enable the option to auto pause upon reset. This will switch focus to another window after creating a world so that when you load in, the game will start paused.
 * You can tab out whenever
 * You can put your timer on top of the Minecraft window
@@ -82,6 +82,10 @@ Fullscreen Pros (and things you miss out on with windowed borderless/windowed):
 Fullscreen Cons:
 * Tabbing out will hide Minecraft
 * You will have to press the reset (and cycle practice) hotkey twice, first to exit the world, and once again to create a new one
+
+In the *Toggle Windowed Borderless/Fullscreen* field please choose a hotkey. If you play in fullscreen, this hotkey will enter and exit fullscreen. If you play in windowed, this hotkey will enter and exit windowed borderless.
+
+See above Windowed Borderless pros for a description of *Abuse Planar is RSG/FSG* and *Auto Pause Upon Reset*
 
 #### Recording Software
 Please select the recording software you use from the drop down menu. The only supported softwares are Streamlabs OBS and OBS Studio. 
@@ -102,7 +106,7 @@ In the *LiveSplit Reset* field, please put the hotkey that you use to reset Live
 In the *LiveSplit Text Color* field, please put the hexadecimal value of the color of your timer. This allows Speedrun Companion to know when LiveSplit appears on your screen, as often when you first start LiveSplit it can take up to 30 seconds to appear.
 
 ### Speedrun Settings
-![image](https://user-images.githubusercontent.com/50433837/116632690-63e48b00-a91d-11eb-8976-2bd24e110e64.png)
+![image](https://user-images.githubusercontent.com/50433837/120549878-c23bd800-c3b9-11eb-915f-8a415a1c7f76.png)
 
 #### General Speedrun Settings
 In the *Reset Hotkey* field, please put the key would like to use to auto reset. This is your reset hotkey for RSG, SSG, and FSG. This hotkey will exit the world (if you are in one), wait for the title screen to appear, and then create a new world, either RSG, SSG, or FSG, depending on which mode you are in. There is a delay so that world creation is visible for verifiers.
@@ -110,16 +114,22 @@ In the *Reset Hotkey* field, please put the key would like to use to auto reset.
 The RSG reset macro is based off of [Onvo's reset macro](https://gist.github.com/onvo1/90365dcc00b3fdffc3eeccb57fc705f1) and the SSG reset macro is based off of modifications to Onvo's script made by logwet (I am unable to find where I obtained his script, sorry!)
 
 #### RSG Settings
+In the *Choose Window Mode* drop down menu, choose how you prefer to play during RSG runs.
+
 In the *LiveSplit RSG Splits Path* field,  please put the full file path to your LiveSplit RSG splits file here (ex. *D:\Saved Games\LiveSplit\Splits\Minecraft Java Edition - Any% RSG.lss*). This allows Speedrun Companion to open your splits when you press *Start RSG*
 
 In the *Tracker Path* field, if you use Talking Mime's RSG reset tracker please put the path to a shortcut leading to the tracker here. (ex. *C:\Users\user\Downloads\resetTracker*). I have found that you have to make a shortcut to the resetTracker.exe and then give the path of that shortcut to Speedrun Companion in order for it to work. This allows Speedrun Companion to open your reset tracker when you press *Start RSG*.
 
 #### SSG Settings
+In the *Choose Window Mode* drop down menu, choose how you prefer to play during SSG runs.
+
 In the *LiveSplit SSG Splits Path* field,  please put the full file path to your LiveSplit RSG splits file here (ex. *D:\Saved Games\LiveSplit\Splits\Minecraft Java Edition - Any% SSG.lss*). This allows Speedrun Companion to open your splits when you press *Start SSG*.
 
 In the *SSG Seed* field, please put the seed you would like to use for SSG. 
 
 #### FSG Settings
+In the *Choose Window Mode* drop down menu, choose how you prefer to play during FSG runs.
+
 In the *LiveSplit FSG Splits Path* field,  please put the full file path to your LiveSplit RSG splits file here (ex. *D:\Saved Games\LiveSplit\Splits\Minecraft Java Edition - Any% FSG.lss*). This allows Speedrun Companion to open your splits when you press *Start FSG*.
 
 Please select how you would like to generate FSG seeds in the drop down menu. Manual means that before you reset, you will manually generate a seed and copy it to your clipboard. Auto Local means that when you press reset, Speedrun Companion will automatically start searching for a seed with the Ubuntu terminal. As soon as it finds one, it will create a world with that seed. Speedrun Companion will then copy the seed and verification code generated by Ubuntu to a file called FSGx.txt (x is an incrementing number) in your saves folder in case you need to submit the verification code. These text files will only be deleted if you manually delete them or when you press the *Clear Saves Folder* button.
@@ -127,11 +137,11 @@ Please select how you would like to generate FSG seeds in the drop down menu. Ma
 If you selected Auto Local:
 * [Here](https://www.youtube.com/watch?v=Gl7zOn2lLo4) is a tutorial on how to set up FSG locally
 * Please provide the path to the folder that contains the *findSeed.sh* file for whichever FSG generator you wish to use (ex. *A:\Minecraft Directory\FSG\fsg-power-village-looting-sword*).
-* Make sure that in that same folder there is a file named *stopAll.sh*. If there is not, this will not function properly. You can get it [here]() (note to self: add download) if you need it.
+* Make sure that in that same folder there is a file named *stopAll.sh*. If there is not, this will not function properly. You can get it [here](https://github.com/ryguy2k4/speedruncompanion/files/6587282/stopAll.zip) if you need it.
 * Please provide the path to your ubuntu installation (ex, *C:\Program Files\WindowsApps\CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2021.222.0_x64__79rhkp1fndgsc\ubuntu2004.exe*).
 
 ### Practice Settings
-![image](https://user-images.githubusercontent.com/50433837/117593004-4b842580-b100-11eb-8373-5cae8e409a40.png)
+![image](https://user-images.githubusercontent.com/50433837/120549913-cff15d80-c3b9-11eb-8349-6f3cd1da527c.png)
 
 #### General Practice Settings
 In the *Cycle Practice Map* field, please provide a hotkey to use for cycling between practice worlds in RSG/FSG Practice Mode or SSG Practice Mode. Pressing this hotkey during a practice mode will exit the world (if you are in one), and then load up the practice map you specify below. It will open practice map 1 the first time it is pressed, and if practice map 2 is provided, it will open that map the next time this hotkey is pressed, and so on until it circles back around to practice map 1.
@@ -139,11 +149,9 @@ In the *Cycle Practice Map* field, please provide a hotkey to use for cycling be
 #### FSG/RSG Practice Settings
 If you want to used FSG/RSG Practice Mode, you must at least fill in *FSG/RSG Practice Map 1* with the name of the practice world. To avoid issues, make sure that the world file folder name is identical to the display name of the world within Minecraft. If you would like to use additional practice maps, check the checkbox above them and provide a world name.
 
-As a complement to Speedrun Companion, I have created a modified version of [Sethbling´s Speedrun Practice Datapack](https://www.youtube.com/watch?v=UihtGJhK_-w) which is included in the folder when you download Speedrun Companion. This modified version is based off of modifications made by Secondairy#1782. This modified version is designed to be used exclusively with Speedrun Companion for bastion practice, so the chat interface has been completely removed and I have added the ability to create custom loadouts. Check *I Use the Speedrun Companion Bastion Practice Datapack* if you have installed it, and make sure that the name of the world you put it into is named "Bastion Practice".
+As a complement to Speedrun Companion, I have created a modified version of [Sethbling´s Speedrun Practice Datapack](https://www.youtube.com/watch?v=UihtGJhK_-w) which is included in the folder when you download Speedrun Companion. This modified version is based off of modifications made by Secondairy#1782. This modified version is designed to be used exclusively with Speedrun Companion for bastion practice, so the chat interface has been completely removed and I have added the ability to create custom loadouts. Check *I Use the Speedrun Companion Bastion Practice Datapack* if you have installed it, and make sure that the name of the world you put it into is named "Bastion Practice". The *Edit Bastion Practice Loadouts* button will open a text file where you can customize your loadouts. I have faith that based on the default loadouts you are smart enough to figure out how to customize it :). In the *Start Bastion Hotkey* field, choose a hotkey that will start your timer and put you into survival mode. Likewise, the *Reset Bastion Hotkey* field is a hotkey that will reset your loadout and timer and send you to a new bastion during RSG/FSG Practice Mode.
 
-If you use the Speedrun Companion Bastion Practice Datapack, the *Edit Bastion Practice Loadouts* button will open a text file where you can customize your loadouts. I have faith that based on the default loadouts you are smart enough to figure out how to customize it :). In the *Start Bastion Hotkey* field, choose a hotkey that will start your timer and put you into survival mode. Likewise, the *Reset Bastion Hotkey* field is a hotkey that will reset your loadout and timer and send you to a new bastion during RSG/FSG Practice Mode.
-
-I am planning on developing my own practice map that will combine the major features of both Emma's End Practice Map and Jojos Perch Practice Map as well as some new features, optimizations, and quality of life improvements of my own. Stay tuned for more information about this!
+As a complement to Speedrun Companion, I have created [ryguy2k4's End Practice Map](https://github.com/ryguy2k4/ryguy2k4endpractice). You can visit that link for more details. Check *I use ryguy2k4's End Practice Map* in the practice settings tab if you have installed it, and make sure that the world folder is named "Ryguy2k4 End Practice". The *Edit Perch Practice Loadouts* button will open text files where you can customize your loadouts. I have faith that based on the default loadouts you are smart enough to figure out how to customize it :).
 
 #### SSG Practice Settings
 If you want to used SSG Practice Mode, you must at least fill in *SSG Practice Map 1* with the name of the practice world. To avoid issues, make sure that the world file folder name is identical to the display name of the world within Minecraft. If you would like to use additional practice maps, check the checkbox above them and provide a world name.
@@ -158,10 +166,10 @@ When assigning hotkeys the following modifiers may be added (without quotes)
 When providing a path to an application, please include the entire path from the drive letter all the way to the .exe
 
 ### Reccomended Practice Maps/Resources
-* [Emma's Epic End Practicerer](https://sites.google.com/view/emma-practice-map/home)
-* [Jojo's Perch Practice Map](https://github.com/jojoe77777/PerchPractice/releases/latest/download/PerchPractice.zip)
+* [Speedrun Companion Modified Bastion Practice Datapack](https://github.com/ryguy2k4/speedruncompanion/files/6587302/customized_sethbling_speedrun_practice.zip)
+* [ryguy2k4's End Practice Map](https://github.com/ryguy2k4/ryguy2k4endpractice)
 * [SSG Practice Map by Lauf et al](https://drive.google.com/file/d/1m7M5q6TECeMsEyiJs8qzl-S62cjev1gh/view?usp=sharing)
-* [Hotkey Practice Map by me](tbd)
+* [Hotkey Practice Map by me](https://cdn.discordapp.com/attachments/405839885509984256/821896625634410546/HotkeyPractice_v2.1.zip)
 
 ## Credit
 Sethbling for his datapack
