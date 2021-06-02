@@ -11,7 +11,7 @@ If you have any questions, comments, or concerns, DM me at ryguy2k4#9371
 
 # Tutorial
 ## Installation
-Download the latest release [*here*](https://github.com/ryguy2k4/speedruncompanion/files/6448804/Beta.1.zip). Extract the zip file that was downloaded and run *Speedrun Companion.exe*. Make sure that the *options.ini* file stays in the same folder as the exe. 
+Download the latest release [*here*](https://github.com/ryguy2k4/speedruncompanion/files/6587413/Beta.2.zip). Extract the zip file that was downloaded and run *Speedrun Companion.exe*. Make sure that the *options.ini* file stays in the same folder as the exe. 
 
 ## The Main GUI
 When you first run Speedrun Companion, you will be asked if you have read through this document, and then the main GUI will be displayed. A description of each button is provided below. Whenever you press a button, please do not use the mouse or keyboard until it has finished its actions.
